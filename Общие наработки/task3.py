@@ -9,11 +9,11 @@ i = 0
 while i < 2:
     b = b//10
     c = b%10
-    s+= c
-    i+=1
+    s += c
+    i += 1
 while b//10 != 0:
-    b = b//10
-    c = b%10
+    b = b // 10
+    c = b % 10
     s1+=c
 if s1 == s:
     print("Счастливый")
