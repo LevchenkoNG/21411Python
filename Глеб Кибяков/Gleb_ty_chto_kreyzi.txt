@@ -1,0 +1,45 @@
+# вывод матрицы по спирали
+
+n = int(input()) # размерность матрицы
+
+a = [[0 for i in range(n)] for j in range(n)] # матрица ввида n * n
+
+i = 0 # строка
+j = 0 # столбец
+x = 0 # смещение по стороне
+y = 0 # смещение по столбцу
+sum_m = 1 # значения матрицы
+pr = 0 # направление по спирали
+a[i][j] = 1 # начальный элемент
+
+while sum_m != n * n :
+    if pr <= 4 :
+        pr += 1
+    else :
+        pr = 1
+    for i1 in range(n) :
+        if pr == 1 :
+            y = 1
+        if pr == 2 :
+            x = 1
+        if pr == 3 :
+            y = -1
+        if pr == 4 :
+            x = -1
+        if (0 <= i + x < n) and (0 <= j + y < n):
+            if (a[i + x][j + y] == 0) :
+                i += x
+                j += y
+                sum_m += 1
+                a[i][j] = sum_m
+            else :
+                break
+        else :
+            break
+    x = 0
+    y = 0
+
+for i1 in range(n):
+    for j1 in range(n):
+        print(a[i1][j1], end = " ")
+    print()
